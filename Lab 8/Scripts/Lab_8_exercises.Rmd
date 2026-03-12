@@ -93,12 +93,17 @@ st_area(coastline)
 # Change units
 units::set_units(st_area(coastline), "km^2")
 
+
+```
+
+Difference :
+
+```{r}
 # check difference between projected and non-projected
 units::set_units(st_area(coastline_proj) - st_area(coastline), "km^2")
 
 # Percent difference
 (st_area(coastline_proj) - st_area(coastline)) / st_area(coastline) * 100
-
 ```
 
 The difference for polygon 1 is 305 $km^2$, that's quite small when comparing to total area of 62237 $km^2$, so our projection works quite well in this case. Though the spherical calculations remain more accurate and work best for area and distance, not all operations work better this way and some even require projections, good to be familiar with both and their underlying logic.
